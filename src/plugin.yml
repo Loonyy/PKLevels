@@ -1,0 +1,7 @@
+name: PKLevels
+version: 1.0.0
+main: com.Sobki.PKLevels.PKLevels
+author: Sobki
+description: Leveling system for ProjectKorra's bending.
+commands:
+depend: [ProjectKorra, Vault]
