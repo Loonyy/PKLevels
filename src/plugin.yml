@@ -4,4 +4,7 @@ main: com.Sobki.PKLevels.PKLevels
 author: Sobki
 description: Leveling system for ProjectKorra's bending.
 commands:
+    pklevels:
+        usage: /pklevels <args>
+        aliases: [pklevels, pklevel, pkl]
 depend: [ProjectKorra, Vault]
