@@ -10,6 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginCommand;
 
 import com.Sobki.PKLevels.PKLevels;
+import com.Sobki.PKLevels.commands.admin.AdminCommand;
 
 public class CommandManager {
 	
@@ -25,6 +26,8 @@ public class CommandManager {
 		new InfoCommand(plugin);
 		new PathsCommand(plugin);
 		new SelectCommand(plugin);
+		new AbilitiesCommand(plugin);
+		new AdminCommand(plugin);
 		
 		CommandExecutor executor = new CommandExecutor() {
 			@Override

@@ -27,6 +27,7 @@ public class PathsCommand extends LevelsCommand {
 		for (PlayerPath path : plugin.pathManager.getPaths()) {
 			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&5- &f" + path.getName()));
 		}
+		sender.sendMessage("");
 		sender.sendMessage(plugin.chatUtils.getChatPrefix()
 				+ ChatColor.translateAlternateColorCodes('&', " &fType &d/pkl info <path> &ffor more information."));
 		sender.sendMessage(plugin.chatUtils.getChatPrefix()
