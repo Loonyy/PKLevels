@@ -17,6 +17,7 @@ import net.milkbowl.vault.permission.Permission;
 
 public class PKLevels extends JavaPlugin {
 	
+	public static PKLevels plugin;
 	public PathManager pathManager;
 	public Methods methods;
 	public ChatUtils chatUtils;
@@ -26,6 +27,7 @@ public class PKLevels extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
+		plugin = this;
 		
 		new ConfigManager(this);
 		methods = new Methods(this);
