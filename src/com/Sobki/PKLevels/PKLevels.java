@@ -16,7 +16,7 @@ import com.Sobki.PKLevels.util.ChatUtils;
 import net.milkbowl.vault.permission.Permission;
 
 public class PKLevels extends JavaPlugin {
-	
+
 	public static PKLevels plugin;
 	public PathManager pathManager;
 	public Methods methods;
@@ -24,12 +24,14 @@ public class PKLevels extends JavaPlugin {
 	public PlayerFile playerFile;
 	public File classesDirectory;
 	public Permission permissions;
-	
+
 	@Override
 	public void onEnable() {
 		plugin = this;
-		
+
 		new ConfigManager(this);
+		ConfigManager.defaultConfig.saveConfig();
+		ConfigManager.languageConfig.saveConfig();
 		methods = new Methods(this);
 		chatUtils = new ChatUtils(this);
 		playerFile = new PlayerFile(this);
@@ -39,28 +41,32 @@ public class PKLevels extends JavaPlugin {
 		new CommandManager(this);
 		registerEvents();
 		setupPermissions();
-		
+
 		for (Player player : getServer().getOnlinePlayers()) {
 			playerFile.playerConfigs.put(player, playerFile.config(player));
 			playerFile.playerDefaults(player);
-			
+
 			methods.loadDataFromFile(player);
 		}
 	}
-	
+
 	@Override
 	public void onDisable() {
+
+		ConfigManager.defaultConfig.saveConfig();
+		ConfigManager.languageConfig.saveConfig();
+
 		for (Player player : getServer().getOnlinePlayers()) {
 			methods.saveDataToFile(player);
 		}
 	}
-	
+
 	public void registerEvents() {
 		getServer().getPluginManager().registerEvents(new Listeners(this), this);
 	}
-	
+
 	private boolean setupPermissions() {
-		
+
 		RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
 		permissions = rsp.getProvider();
 		return permissions != null;
